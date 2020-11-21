@@ -1,6 +1,5 @@
 # CollatzVBA
 Implementacao da Conjectura de Collatz - VBA
-
 A Conjectura de Collatz é o problema não resolvido de matemática mais simples da história.
 
 Pegue um número qualquer n.
@@ -24,7 +23,7 @@ Exemplo: número inicial 6
 Foram 8 passos para convergir para 1.
 
 Para números de 2 a 50, o resultado do número de passos mostra:
-
+![](https://ferramentasexcelvba.files.wordpress.com/2020/11/collatz.png)
 
 Informações interessantes: apesar de extremamente simples de ser formulada, essa conjectura até hoje não foi provada.
 
@@ -41,12 +40,6 @@ Dim count As Long
 count = 0
 While n > 1
 
-1
-2
-3
-4
-5
-6
 If n Mod 2 = 0 Then
     n = n / 2
 Else
@@ -58,6 +51,18 @@ Wend
 collatz = count
 
 End Function
+
+É possível pensar numa estrutura da dados mais complexa, porém com melhor performance computacional.
+
+Por exemplo, salvar o número de passos de todos os valores já rodados. Rodar a sequência até chegar a um número menor do que o atual, e aí resgatar da memória o resultado já calculado.
+
+![](https://ferramentasexcelvba.files.wordpress.com/2020/11/collatz.jpg)
+Com esse método, é possível calcular os primeiros 110 mil números, em menos de 1 segundo.
+
+No VBA, o limite é restrição de tamanho do tipo Long. Não há um tipo Big Int, como em Java ou Python, o que torna bem complicado calcular mais do que isso.
+
+
+Código no Github: https://github.com/asgunzi/CollatzVBA
 
 Veja também:
 
